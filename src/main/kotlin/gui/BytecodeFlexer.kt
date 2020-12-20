@@ -28,15 +28,15 @@ object BytecodeFlexer : freditor.Flexer() {
 
     override fun pickColorForLexeme(previousState: FlexerState, endState: FlexerState): Int {
         val colors = if (previousState === NEWLINE) afterNewline else lexemeColors
-        return colors[endState] ?: 0x000000
+        return colors[endState] ?: 0x12B352
     }
 
     private val lexemeColors = ChampMap.of(ERROR, 0x808080)
-            .put(NUMBER_HEAD, NUMBER_TAIL, 0x6400c8)
-            .put(START.read("@", "CODE", "MNEMONIC"), 0x808080)
-            .put(START.read("BEEP", "HEAD", "LCLR", "FCLR", "RCLR", "NOT", "AND", "OR", "XOR", "PUSH", "FALSE", "TRUE"), 0x000080)
-            .put(START.read("RET", "LOOP", "CALL", "JUMP", "ELSE", "THEN"), 0x400000)
+            .put(NUMBER_HEAD, NUMBER_TAIL, 0xA38302)
+            .put(START.read("@", "CODE", "MNEMONIC"), 0xA2A1A0)
+            .put(START.read("BEEP", "HEAD", "LCLR", "FCLR", "RCLR", "NOT", "AND", "OR", "XOR", "PUSH", "FALSE", "TRUE"), 0x1E9AA6)
+            .put(START.read("RET", "LOOP", "CALL", "JUMP", "ELSE", "THEN"), 0x1E62A6)
 
     private val afterNewline = lexemeColors
-            .put(NUMBER_HEAD, NUMBER_TAIL, 0x808080)
+            .put(NUMBER_HEAD, NUMBER_TAIL, 0xA2A1A0)
 }

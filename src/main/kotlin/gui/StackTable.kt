@@ -36,7 +36,7 @@ class StackTable : JComponent() {
     }
 
     override fun paint(g: Graphics) {
-        g.color = Color.WHITE
+        g.color = Color(0x2B2B2B)
         g.fillRect(0, 0, width, height)
 
         var y = 0

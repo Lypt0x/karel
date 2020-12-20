@@ -10,7 +10,7 @@ class ReturnAddress(val value: Int) : StackValue {
     }
 
     override val color: Int
-        get() = 0x808080
+        get() = 0xA38302
 }
 
 class LoopCounter(val value: Int) : StackValue {
@@ -19,7 +19,7 @@ class LoopCounter(val value: Int) : StackValue {
     }
 
     override val color: Int
-        get() = 0x6400c8
+        get() = 0x1E9AA6
 }
 
 enum class Bool : StackValue {
