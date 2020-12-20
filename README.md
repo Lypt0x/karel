@@ -56,7 +56,7 @@ The pre-selected version and JVM are usually fine, no need to change them.
 
 ### Download Karel
 
-Download <a href="https://raw.githubusercontent.com/lypt0x/karel/release/karel.jar" type="application/java-archive">karel.jar</a> (~250 kb)
+Download <a href="https://raw.githubusercontent.com/lypt0x/karel/release-darktheme/karel.jar" type="application/java-archive">karel.jar</a> (~250 kb)
 
 ### Start Karel (Microsoft Windows)
 
@@ -82,7 +82,7 @@ Press the Windows key (the key on the bottom left with the Windows logo on it), 
 Then enter the following lines:
 
     cd Downloads
-    curl -o karel.jar https://raw.githubusercontent.com/lypt0x/karel/release/karel.jar
+    curl -o karel.jar https://raw.githubusercontent.com/lypt0x/karel/release-darktheme/karel.jar
     java -jar karel.jar
     
 The last line verifies the download by starting Karel.
