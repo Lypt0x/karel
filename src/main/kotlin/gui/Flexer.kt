@@ -35,6 +35,10 @@ object Flexer : freditor.Flexer() {
             .set("AZ__az", IDENTIFIER_HEAD)
             .build()
             .verbatim(IDENTIFIER_TAIL, "else", "false", "if", "repeat", "true", "void", "while")
+            .verbatim(IDENTIFIER_TAIL, "moveForward", "frontIsClear", "leftIsClear",
+                    "rightIsClear", "onBeeper", "beeperAhead",
+                    "turnLeft", "turnAround", "turnRight",
+                    "pickBeeper", "dropBeeper")
             .verbatim(EMPTY, "!", "&&", ";", "||")
             .setDefault(ERROR)
 
@@ -53,4 +57,8 @@ object Flexer : freditor.Flexer() {
             .put(START.read("void"), 0xCC7832)
             .put(START.read("(", ")", "{", "}"), 0xA2A8AF)
             .put(START.read("!", "&&", "||"), 0xA2A8AB)
+            .put(START.read("moveForward", "frontIsClear", "leftIsClear",
+                    "rightIsClear", "onBeeper", "beeperAhead",
+                    "turnLeft", "turnAround", "turnRight",
+                    "pickBeeper", "dropBeeper"), 0x5077CC)
 }
