@@ -1,6 +1,8 @@
 package gui
 
+import java.awt.Color
 import java.awt.Component
+import java.awt.Graphics
 import java.awt.event.*
 
 import javax.swing.BoxLayout
@@ -14,12 +16,26 @@ open class HorizontalBoxPanel(vararg components: Component) : JPanel() {
         layout = BoxLayout(this, BoxLayout.X_AXIS)
         components.forEach { add(it) }
     }
+
+    override fun paintComponent(g: Graphics?) {
+        super.paintComponent(g)
+
+        g?.color = Color(0x313335)
+        g?.fillRect(0, 0, width, height)
+    }
 }
 
 open class VerticalBoxPanel(vararg components: Component) : JPanel() {
     init {
         layout = BoxLayout(this, BoxLayout.Y_AXIS)
         components.forEach { add(it) }
+    }
+
+    override fun paintComponent(g: Graphics?) {
+        super.paintComponent(g)
+
+        g?.color = Color(0x313335)
+        g?.fillRect(0, 0, width, height)
     }
 }
 

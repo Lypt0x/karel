@@ -41,15 +41,16 @@ object Flexer : freditor.Flexer() {
     override fun start(): FlexerState = START
 
     override fun pickColorForLexeme(previousState: FlexerState, endState: FlexerState): Int {
-        return lexemeColors[endState] ?: 0x000000
+        return lexemeColors[endState] ?: 0x6491B2
     }
 
     private val lexemeColors = ChampMap.of(ERROR, 0x808080)
-            .put(START.read("/", "&", "|"), 0x808080)
-            .put(SLASH_SLASH, SLASH_ASTERISK, SLASH_ASTERISK___ASTERISK, SLASH_ASTERISK___ASTERISK_SLASH, 0x008000)
-            .put(NUMBER_HEAD, NUMBER_TAIL, 0x6400c8)
-            .put(START.read("else", "false", "if", "repeat", "true", "while"), 0x0000ff)
-            .put(START.read("void"), 0x008080)
-            .put(START.read("(", ")", "{", "}"), 0xff0000)
-            .put(START.read("!", "&&", "||"), 0x804040)
+            .put(START.read("/", "&", "|"), 0xFFFFFF)
+            .put(START.read(";"), 0xA2A8AF)
+            .put(SLASH_SLASH, SLASH_ASTERISK, SLASH_ASTERISK___ASTERISK, SLASH_ASTERISK___ASTERISK_SLASH, 0x70705F)
+            .put(NUMBER_HEAD, NUMBER_TAIL, 0x0FA010)
+            .put(START.read("else", "false", "if", "repeat", "true", "while"), 0xCC7832)
+            .put(START.read("void"), 0xCC7832)
+            .put(START.read("(", ")", "{", "}"), 0xA2A8AF)
+            .put(START.read("!", "&&", "||"), 0xA2A8AB)
 }
