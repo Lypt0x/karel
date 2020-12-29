@@ -125,12 +125,12 @@ class WorldPanel(private val atomicWorld: AtomicReference<World>) : JPanel() {
             var beeperValue = 1
             for (x in 9 downTo 2) {
                 if (world.beeperAt(x, y)) {
-                    drawNumber(x, y, beeperValue, 0x000000)
+                    drawNumber(x, y, beeperValue, 0xFFFFFF)
                     totalValue += beeperValue
                 }
                 beeperValue = beeperValue.shl(1)
             }
-            drawNumber(0, y, totalValue, 0x008000)
+            drawNumber(0, y, totalValue, 0xFFFFFF)
         }
     }
 

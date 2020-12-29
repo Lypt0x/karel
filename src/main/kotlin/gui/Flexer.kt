@@ -9,6 +9,7 @@ import freditor.FlexerState.THIS
 
 object Flexer : freditor.Flexer() {
     private val SLASH_SLASH = FlexerState('\n', null).setDefault(THIS)
+    private val PRAGMA = FlexerState(' ', null).setDefault(THIS)
     private val SLASH_ASTERISK___ASTERISK_SLASH = EMPTY.tail()
     private val SLASH_ASTERISK___ASTERISK = FlexerState('*', THIS, '/', SLASH_ASTERISK___ASTERISK_SLASH)
     private val SLASH_ASTERISK = FlexerState('*', SLASH_ASTERISK___ASTERISK).setDefault(THIS)
@@ -31,6 +32,7 @@ object Flexer : freditor.Flexer() {
             .set('\n', NEWLINE)
             .set(' ', SPACE_HEAD)
             .set('/', FlexerState('*', SLASH_ASTERISK, '/', SLASH_SLASH).head())
+            .set('#', PRAGMA)
             .set("09", NUMBER_HEAD)
             .set("AZ__az", IDENTIFIER_HEAD)
             .build()
@@ -38,7 +40,7 @@ object Flexer : freditor.Flexer() {
             .verbatim(IDENTIFIER_TAIL, "moveForward", "frontIsClear", "leftIsClear",
                     "rightIsClear", "onBeeper", "beeperAhead",
                     "turnLeft", "turnAround", "turnRight",
-                    "pickBeeper", "dropBeeper")
+                    "pickBeeper", "dropBeeper", "DISABLE_LOCK")
             .verbatim(EMPTY, "!", "&&", ";", "||")
             .setDefault(ERROR)
 
@@ -53,6 +55,7 @@ object Flexer : freditor.Flexer() {
             .put(START.read(";"), 0xA2A8AF)
             .put(SLASH_SLASH, SLASH_ASTERISK, SLASH_ASTERISK___ASTERISK, SLASH_ASTERISK___ASTERISK_SLASH, 0x70705F)
             .put(NUMBER_HEAD, NUMBER_TAIL, 0x0FA010)
+            .put(PRAGMA, 0xFF6600)
             .put(START.read("else", "false", "if", "repeat", "true", "while"), 0xCC7832)
             .put(START.read("void"), 0xCC7832)
             .put(START.read("(", ")", "{", "}"), 0xA2A8AF)
@@ -61,4 +64,5 @@ object Flexer : freditor.Flexer() {
                     "rightIsClear", "onBeeper", "beeperAhead",
                     "turnLeft", "turnAround", "turnRight",
                     "pickBeeper", "dropBeeper"), 0x5077CC)
+            .put(START.read("DISABLE_LOCK"), 0xFF7F00)
 }
